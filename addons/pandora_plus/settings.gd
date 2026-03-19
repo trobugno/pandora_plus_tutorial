@@ -1,0 +1,207 @@
+@tool
+extends RefCounted
+class_name PandoraPlusSettings
+
+const CATEGORY_MAIN = "pandora_plus"
+const CATEGORY_CONFIG: StringName = CATEGORY_MAIN + "/config"
+const CATEGORY_CONFIG_COMBAT : StringName = CATEGORY_CONFIG + "/combat_calculator"
+const CATEGORY_CONFIG_SAVE : StringName = CATEGORY_CONFIG + "/save_system"
+const CATEGORY_CONFIG_PLAYER : StringName = CATEGORY_CONFIG + "/player"
+const CATEGORY_CONFIG_TIME : StringName = CATEGORY_CONFIG + "/time"
+const CATEGORY_CONFIG_QUEST : StringName = CATEGORY_CONFIG + "/quest"
+const CATEGORY_CONFIG_UPDATES : StringName = CATEGORY_CONFIG + "/updates"
+
+const COMBAT_SETTING_DEFENSE_REDUCTION_FACTOR : StringName = CATEGORY_CONFIG_COMBAT + "/defense_reduction_factor"
+const COMBAT_SETTING_DEFENSE_REDUCTION_FACTOR_VALUE : float = 0.5
+
+const COMBAT_SETTING_ARMOR_DIMINISHING_RETURNS : StringName = CATEGORY_CONFIG_COMBAT + "/armor_diminishing_returns"
+const COMBAT_SETTING_ARMOR_DIMINISHING_RETURNS_VALUE: float = 100.0
+
+const COMBAT_SETTING_CRIT_RATE_CAP : StringName = CATEGORY_CONFIG_COMBAT + "/crit_rate_cap"
+const COMBAT_SETTING_CRIT_RATE_CAP_VALUE : float = 100.0
+
+const COMBAT_SETTING_CRIT_DAMAGE_BASE : StringName = CATEGORY_CONFIG_COMBAT + "/crit_damage_base"
+const COMBAT_SETTING_CRIT_DAMAGE_BASE_VALUE : float = 150.0
+
+const SAVE_SETTING_MAX_SLOTS : StringName = CATEGORY_CONFIG_SAVE + "/max_save_slots"
+const SAVE_SETTING_MAX_SLOTS_VALUE : int = 3
+
+const SAVE_SETTING_AUTOSAVE_ENABLED : StringName = CATEGORY_CONFIG_SAVE + "/autosave_enabled"
+const SAVE_SETTING_AUTOSAVE_ENABLED_VALUE : bool = true
+
+const SAVE_SETTING_AUTOSAVE_INTERVAL : StringName = CATEGORY_CONFIG_SAVE + "/autosave_interval_seconds"
+const SAVE_SETTING_AUTOSAVE_INTERVAL_VALUE : float = 300.0
+
+const SAVE_SETTING_SAVE_DIRECTORY : StringName = CATEGORY_CONFIG_SAVE + "/save_directory"
+const SAVE_SETTING_SAVE_DIRECTORY_VALUE : String = "user://saves/"
+
+const SAVE_SETTING_SAVE_EXTENSION : StringName = CATEGORY_CONFIG_SAVE + "/save_file_extension"
+const SAVE_SETTING_SAVE_EXTENSION_VALUE : String = ".json"
+
+# Player Settings
+const PLAYER_SETTING_STARTING_CURRENCY : StringName = CATEGORY_CONFIG_PLAYER + "/starting_currency"
+const PLAYER_SETTING_STARTING_CURRENCY_VALUE : int = 0
+
+const PLAYER_SETTING_MAX_INVENTORY_SLOTS : StringName = CATEGORY_CONFIG_PLAYER + "/max_inventory_slots"
+const PLAYER_SETTING_MAX_INVENTORY_SLOTS_VALUE : int = -1
+
+const PLAYER_SETTING_RESPAWN_HEALTH_PCT : StringName = CATEGORY_CONFIG_PLAYER + "/respawn_health_percentage"
+const PLAYER_SETTING_RESPAWN_HEALTH_PCT_VALUE : float = 1.0
+
+# Time Settings
+const TIME_SETTING_STARTING_DAY : StringName = CATEGORY_CONFIG_TIME + "/starting_day"
+const TIME_SETTING_STARTING_DAY_VALUE : int = 1
+
+const TIME_SETTING_STARTING_HOUR : StringName = CATEGORY_CONFIG_TIME + "/starting_hour"
+const TIME_SETTING_STARTING_HOUR_VALUE : int = 12
+
+const TIME_SETTING_TIME_SCALE_DEFAULT : StringName = CATEGORY_CONFIG_TIME + "/time_scale_default"
+const TIME_SETTING_TIME_SCALE_DEFAULT_VALUE : float = 1.0
+
+# Quest Settings
+const QUEST_SETTING_AUTO_GRANT_REWARDS : StringName = CATEGORY_CONFIG_QUEST + "/auto_grant_rewards"
+const QUEST_SETTING_AUTO_GRANT_REWARDS_VALUE : bool = true
+
+const QUEST_SETTING_INVENTORY_FULL_BEHAVIOR : StringName = CATEGORY_CONFIG_QUEST + "/inventory_full_behavior"
+const QUEST_SETTING_INVENTORY_FULL_BEHAVIOR_VALUE : String = "BLOCK_COMPLETION"
+
+# Update Settings
+const UPDATE_SETTING_AUTO_CHECK : StringName = CATEGORY_CONFIG_UPDATES + "/auto_check_enabled"
+const UPDATE_SETTING_AUTO_CHECK_VALUE : bool = true
+
+const UPDATE_SETTING_CHECK_INTERVAL : StringName = CATEGORY_CONFIG_UPDATES + "/check_interval_hours"
+const UPDATE_SETTING_CHECK_INTERVAL_VALUE : int = 24
+
+static func initialize() -> void:
+	init_setting(
+		COMBAT_SETTING_DEFENSE_REDUCTION_FACTOR,
+		COMBAT_SETTING_DEFENSE_REDUCTION_FACTOR_VALUE,
+		TYPE_FLOAT
+	)
+	init_setting(
+		COMBAT_SETTING_ARMOR_DIMINISHING_RETURNS,
+		COMBAT_SETTING_ARMOR_DIMINISHING_RETURNS_VALUE,
+		TYPE_FLOAT
+	)
+	init_setting(
+		COMBAT_SETTING_CRIT_RATE_CAP,
+		COMBAT_SETTING_CRIT_RATE_CAP_VALUE,
+		TYPE_FLOAT
+	)
+	init_setting(
+		COMBAT_SETTING_CRIT_DAMAGE_BASE,
+		COMBAT_SETTING_CRIT_DAMAGE_BASE_VALUE,
+		TYPE_FLOAT
+	)
+
+	# Save System Settings
+	init_setting(
+		SAVE_SETTING_MAX_SLOTS,
+		SAVE_SETTING_MAX_SLOTS_VALUE,
+		TYPE_INT,
+		PROPERTY_HINT_RANGE,
+		"1,20,1"
+	)
+	init_setting(
+		SAVE_SETTING_AUTOSAVE_ENABLED,
+		SAVE_SETTING_AUTOSAVE_ENABLED_VALUE,
+		TYPE_BOOL
+	)
+	init_setting(
+		SAVE_SETTING_AUTOSAVE_INTERVAL,
+		SAVE_SETTING_AUTOSAVE_INTERVAL_VALUE,
+		TYPE_FLOAT,
+		PROPERTY_HINT_RANGE,
+		"30.0,3600.0,10.0"
+	)
+	init_setting(
+		SAVE_SETTING_SAVE_DIRECTORY,
+		SAVE_SETTING_SAVE_DIRECTORY_VALUE,
+		TYPE_STRING
+	)
+	init_setting(
+		SAVE_SETTING_SAVE_EXTENSION,
+		SAVE_SETTING_SAVE_EXTENSION_VALUE,
+		TYPE_STRING
+	)
+
+	# Player Settings
+	init_setting(
+		PLAYER_SETTING_STARTING_CURRENCY,
+		PLAYER_SETTING_STARTING_CURRENCY_VALUE,
+		TYPE_INT,
+		PROPERTY_HINT_RANGE,
+		"0,999999,1"
+	)
+	init_setting(
+		PLAYER_SETTING_MAX_INVENTORY_SLOTS,
+		PLAYER_SETTING_MAX_INVENTORY_SLOTS_VALUE,
+		TYPE_INT,
+		PROPERTY_HINT_RANGE,
+		"-1,999,1"
+	)
+	init_setting(
+		PLAYER_SETTING_RESPAWN_HEALTH_PCT,
+		PLAYER_SETTING_RESPAWN_HEALTH_PCT_VALUE,
+		TYPE_FLOAT,
+		PROPERTY_HINT_RANGE,
+		"0.0,1.0,0.1"
+	)
+	
+	# Quest Settings
+	init_setting(
+		QUEST_SETTING_AUTO_GRANT_REWARDS,
+		QUEST_SETTING_AUTO_GRANT_REWARDS_VALUE,
+		TYPE_BOOL,
+		PROPERTY_HINT_NONE
+	)
+	init_setting(
+		QUEST_SETTING_INVENTORY_FULL_BEHAVIOR,
+		QUEST_SETTING_INVENTORY_FULL_BEHAVIOR_VALUE,
+		TYPE_STRING,
+		PROPERTY_HINT_ENUM,
+		"BLOCK_COMPLETION,COMPLETE_AND_NOTIFY"
+	)
+
+	# Time Settings
+	init_setting(
+		TIME_SETTING_STARTING_DAY,
+		TIME_SETTING_STARTING_DAY_VALUE,
+		TYPE_INT,
+		PROPERTY_HINT_RANGE,
+		"1,999,1"
+	)
+	init_setting(
+		TIME_SETTING_STARTING_HOUR,
+		TIME_SETTING_STARTING_HOUR_VALUE,
+		TYPE_INT,
+		PROPERTY_HINT_RANGE,
+		"0,23,1"
+	)
+	init_setting(
+		TIME_SETTING_TIME_SCALE_DEFAULT,
+		TIME_SETTING_TIME_SCALE_DEFAULT_VALUE,
+		TYPE_FLOAT,
+		PROPERTY_HINT_RANGE,
+		"0.0,10.0,0.1"
+	)
+
+static func init_setting(
+	name: String,
+	default: Variant,
+	type := typeof(default),
+	hint := PROPERTY_HINT_NONE,
+	hint_string := ""
+) -> void:
+	if not ProjectSettings.has_setting(name):
+		ProjectSettings.set_setting(name, default)
+	
+	ProjectSettings.set_initial_value(name, default)
+	
+	var info = {
+		"name": name,
+		"type": type,
+		"hint": hint,
+		"hint_string": hint_string,
+	}
+	ProjectSettings.add_property_info(info)

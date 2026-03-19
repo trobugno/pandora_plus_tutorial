@@ -1,0 +1,1657 @@
+{
+	"_entity_data": {
+		"_categories": [
+			{
+				"_category_id": "",
+				"_generate_ids": true,
+				"_icon_color": "ffffff00",
+				"_id": "39.0",
+				"_index": 0,
+				"_name": "Rarity",
+				"_script_path": "res://addons/pandora_plus/entities/rarity_entity.gd"
+			},
+			{
+				"_category_id": "",
+				"_generate_ids": true,
+				"_icon_color": "ffffff00",
+				"_id": "42.0",
+				"_index": 0,
+				"_name": "Items",
+				"_script_path": "res://addons/pandora_plus/entities/item_entity.gd"
+			},
+			{
+				"_category_id": "",
+				"_generate_ids": true,
+				"_icon_color": "ffffff00",
+				"_id": "50.0",
+				"_index": 0,
+				"_name": "Quests",
+				"_script_path": "res://addons/pandora_plus/entities/quest_entity.gd"
+			},
+			{
+				"_category_id": "",
+				"_generate_ids": true,
+				"_icon_color": "ffffff00",
+				"_id": "52.0",
+				"_index": 0,
+				"_name": "ItemRecipes",
+				"_script_path": "res://addons/pandora_plus/entities/recipe_entity.gd"
+			},
+			{
+				"_category_id": "",
+				"_generate_ids": true,
+				"_icon_color": "ffffff00",
+				"_id": "55.0",
+				"_index": 0,
+				"_name": "Locations",
+				"_script_path": "res://addons/pandora_plus/entities/location_entity.gd"
+			},
+			{
+				"_category_id": "",
+				"_generate_ids": true,
+				"_icon_color": "ffffff00",
+				"_id": "63.0",
+				"_index": 0,
+				"_name": "NPCs",
+				"_script_path": "res://addons/pandora_plus/entities/npc_entity.gd"
+			}
+		],
+		"_entities": [
+			{
+				"_category_id": "39.0",
+				"_icon_color": "ffffff00",
+				"_id": "72.0",
+				"_index": 0,
+				"_name": "Common",
+				"_property_overrides": {
+					"name": {
+						"type": "string",
+						"value": "Common"
+					},
+					"percentage": {
+						"type": "float",
+						"value": 70.0
+					}
+				}
+			},
+			{
+				"_category_id": "39.0",
+				"_icon_color": "ffffff00",
+				"_id": "73.0",
+				"_index": 0,
+				"_name": "Uncommon",
+				"_property_overrides": {
+					"name": {
+						"type": "string",
+						"value": "Uncommon"
+					},
+					"percentage": {
+						"type": "float",
+						"value": 20.0
+					}
+				}
+			},
+			{
+				"_category_id": "39.0",
+				"_icon_color": "ffffff00",
+				"_id": "74.0",
+				"_index": 0,
+				"_name": "Rare",
+				"_property_overrides": {
+					"name": {
+						"type": "string",
+						"value": "Rare"
+					},
+					"percentage": {
+						"type": "float",
+						"value": 8.0
+					}
+				}
+			},
+			{
+				"_category_id": "39.0",
+				"_icon_color": "ffffff00",
+				"_id": "75.0",
+				"_index": 0,
+				"_name": "Epic",
+				"_property_overrides": {
+					"name": {
+						"type": "string",
+						"value": "Epic"
+					},
+					"percentage": {
+						"type": "float",
+						"value": 2.0
+					}
+				}
+			},
+			{
+				"_category_id": "42.0",
+				"_icon_color": "ffffff00",
+				"_id": "76.0",
+				"_index": 0,
+				"_name": "Health Potion",
+				"_property_overrides": {
+					"description": {
+						"type": "string",
+						"value": "A warm red liquid that restores vitality. Tastes like cherries."
+					},
+					"name": {
+						"type": "string",
+						"value": "Health Potion"
+					},
+					"rarity": {
+						"type": "reference",
+						"value": {
+							"_entity_id": "72.0",
+							"_type": 0
+						}
+					},
+					"stackable": {
+						"type": "bool",
+						"value": true
+					},
+					"texture": {
+						"type": "resource",
+						"value": "res://assets/icons/health_potion.png"
+					},
+					"value": {
+						"type": "float",
+						"value": 25.0
+					},
+					"weight": {
+						"type": "float",
+						"value": 0.299999237060547
+					}
+				}
+			},
+			{
+				"_category_id": "42.0",
+				"_icon_color": "ffffff00",
+				"_id": "77.0",
+				"_index": 0,
+				"_name": "Mana Potion",
+				"_property_overrides": {
+					"description": {
+						"type": "string",
+						"value": "A shimmering blue elixir that replenishes magical energy."
+					},
+					"name": {
+						"type": "string",
+						"value": "Mana Potion"
+					},
+					"rarity": {
+						"type": "reference",
+						"value": {
+							"_entity_id": "72.0",
+							"_type": 0
+						}
+					},
+					"stackable": {
+						"type": "bool",
+						"value": true
+					},
+					"texture": {
+						"type": "resource",
+						"value": "res://assets/icons/mana_potion.png"
+					},
+					"value": {
+						"type": "float",
+						"value": 30.0
+					},
+					"weight": {
+						"type": "float",
+						"value": 0.299999237060547
+					}
+				}
+			},
+			{
+				"_category_id": "42.0",
+				"_icon_color": "ffffff00",
+				"_id": "78.0",
+				"_index": 0,
+				"_name": "Strawberry",
+				"_property_overrides": {
+					"description": {
+						"type": "string",
+						"value": "A sweet wild strawberry. Restores a small amount of health when eaten."
+					},
+					"name": {
+						"type": "string",
+						"value": "Strawberry"
+					},
+					"rarity": {
+						"type": "reference",
+						"value": {
+							"_entity_id": "72.0",
+							"_type": 0
+						}
+					},
+					"stackable": {
+						"type": "bool",
+						"value": true
+					},
+					"texture": {
+						"type": "resource",
+						"value": "res://assets/icons/strawberry.png"
+					},
+					"value": {
+						"type": "float",
+						"value": 3.0
+					},
+					"weight": {
+						"type": "float",
+						"value": 0.100000381469727
+					}
+				}
+			},
+			{
+				"_category_id": "42.0",
+				"_icon_color": "ffffff00",
+				"_id": "79.0",
+				"_index": 0,
+				"_name": "Mushrooms",
+				"_property_overrides": {
+					"description": {
+						"type": "string",
+						"value": "Forest mushrooms with faint magical properties. Used in alchemy."
+					},
+					"name": {
+						"type": "string",
+						"value": "Mushrooms"
+					},
+					"rarity": {
+						"type": "reference",
+						"value": {
+							"_entity_id": "72.0",
+							"_type": 0
+						}
+					},
+					"stackable": {
+						"type": "bool",
+						"value": true
+					},
+					"texture": {
+						"type": "resource",
+						"value": "res://assets/icons/mushrooms.png"
+					},
+					"value": {
+						"type": "float",
+						"value": 5.0
+					},
+					"weight": {
+						"type": "float",
+						"value": 0.200000762939453
+					}
+				}
+			},
+			{
+				"_category_id": "42.0",
+				"_icon_color": "ffffff00",
+				"_id": "80.0",
+				"_index": 0,
+				"_name": "Root",
+				"_property_overrides": {
+					"description": {
+						"type": "string",
+						"value": "Tough underground roots with restorative essence. Used in potions."
+					},
+					"name": {
+						"type": "string",
+						"value": "Root"
+					},
+					"rarity": {
+						"type": "reference",
+						"value": {
+							"_entity_id": "72.0",
+							"_type": 0
+						}
+					},
+					"stackable": {
+						"type": "bool",
+						"value": true
+					},
+					"texture": {
+						"type": "resource",
+						"value": "res://assets/icons/root.png"
+					},
+					"value": {
+						"type": "float",
+						"value": 4.0
+					},
+					"weight": {
+						"type": "float",
+						"value": 0.299999237060547
+					}
+				}
+			},
+			{
+				"_category_id": "42.0",
+				"_icon_color": "ffffff00",
+				"_id": "81.0",
+				"_index": 0,
+				"_name": "Aromatic Leaves",
+				"_property_overrides": {
+					"description": {
+						"type": "string",
+						"value": "Fragrant leaves infused with natural magic. A key alchemy ingredient."
+					},
+					"name": {
+						"type": "string",
+						"value": "Aromatic Leaves"
+					},
+					"rarity": {
+						"type": "reference",
+						"value": {
+							"_entity_id": "72.0",
+							"_type": 0
+						}
+					},
+					"stackable": {
+						"type": "bool",
+						"value": true
+					},
+					"texture": {
+						"type": "resource",
+						"value": "res://assets/icons/aromatic_leaves.png"
+					},
+					"value": {
+						"type": "float",
+						"value": 6.0
+					},
+					"weight": {
+						"type": "float",
+						"value": 0.100000381469727
+					}
+				}
+			},
+			{
+				"_category_id": "42.0",
+				"_icon_color": "ffffff00",
+				"_id": "82.0",
+				"_index": 0,
+				"_name": "Leather",
+				"_property_overrides": {
+					"description": {
+						"type": "string",
+						"value": "Tanned animal hide, flexible yet durable. The backbone of light armor."
+					},
+					"name": {
+						"type": "string",
+						"value": "Leather"
+					},
+					"rarity": {
+						"type": "reference",
+						"value": {
+							"_entity_id": "72.0",
+							"_type": 0
+						}
+					},
+					"stackable": {
+						"type": "bool",
+						"value": true
+					},
+					"texture": {
+						"type": "resource",
+						"value": "res://assets/icons/leather.png"
+					},
+					"value": {
+						"type": "float",
+						"value": 10.0
+					},
+					"weight": {
+						"type": "float",
+						"value": 1.5
+					}
+				}
+			},
+			{
+				"_category_id": "42.0",
+				"_icon_color": "ffffff00",
+				"_id": "83.0",
+				"_index": 0,
+				"_name": "Diamond",
+				"_property_overrides": {
+					"description": {
+						"type": "string",
+						"value": "A brilliant gem of extraordinary hardness. Extermely rare and precious."
+					},
+					"name": {
+						"type": "string",
+						"value": "Diamond"
+					},
+					"rarity": {
+						"type": "reference",
+						"value": {
+							"_entity_id": "75.0",
+							"_type": 0
+						}
+					},
+					"stackable": {
+						"type": "bool",
+						"value": true
+					},
+					"texture": {
+						"type": "resource",
+						"value": "res://assets/icons/diamond.png"
+					},
+					"value": {
+						"type": "float",
+						"value": 250.0
+					},
+					"weight": {
+						"type": "float",
+						"value": 0.200000762939453
+					}
+				}
+			},
+			{
+				"_category_id": "42.0",
+				"_icon_color": "ffffff00",
+				"_id": "84.0",
+				"_index": 0,
+				"_name": "Gold Ingot",
+				"_property_overrides": {
+					"description": {
+						"type": "string",
+						"value": "A gleaming bar of pure gold. Highly values by merchants and jewelers."
+					},
+					"name": {
+						"type": "string",
+						"value": "Gold Ingot"
+					},
+					"rarity": {
+						"type": "reference",
+						"value": {
+							"_entity_id": "74.0",
+							"_type": 0
+						}
+					},
+					"stackable": {
+						"type": "bool",
+						"value": true
+					},
+					"texture": {
+						"type": "resource",
+						"value": "res://assets/icons/gold.png"
+					},
+					"value": {
+						"type": "float",
+						"value": 120.0
+					},
+					"weight": {
+						"type": "float",
+						"value": 2.5
+					}
+				}
+			},
+			{
+				"_category_id": "42.0",
+				"_icon_color": "ffffff00",
+				"_id": "85.0",
+				"_index": 0,
+				"_name": "Iron Ingot",
+				"_property_overrides": {
+					"description": {
+						"type": "string",
+						"value": "A bar of smelted iron, ready to be shaped into something useful."
+					},
+					"name": {
+						"type": "string",
+						"value": "Iron Ingot"
+					},
+					"rarity": {
+						"type": "reference",
+						"value": {
+							"_entity_id": "72.0",
+							"_type": 0
+						}
+					},
+					"stackable": {
+						"type": "bool",
+						"value": true
+					},
+					"texture": {
+						"type": "resource",
+						"value": "res://assets/icons/iron.png"
+					},
+					"value": {
+						"type": "float",
+						"value": 15.0
+					},
+					"weight": {
+						"type": "float",
+						"value": 2.0
+					}
+				}
+			},
+			{
+				"_category_id": "42.0",
+				"_icon_color": "ffffff00",
+				"_id": "86.0",
+				"_index": 0,
+				"_name": "Wood",
+				"_property_overrides": {
+					"description": {
+						"type": "string",
+						"value": "A sturdy piece of timber. Essential for crafting tools and weapons."
+					},
+					"name": {
+						"type": "string",
+						"value": "Wood"
+					},
+					"rarity": {
+						"type": "reference",
+						"value": {
+							"_entity_id": "72.0",
+							"_type": 0
+						}
+					},
+					"stackable": {
+						"type": "bool",
+						"value": true
+					},
+					"texture": {
+						"type": "resource",
+						"value": "res://assets/icons/wood.png"
+					},
+					"value": {
+						"type": "float",
+						"value": 2.0
+					},
+					"weight": {
+						"type": "float",
+						"value": 1.0
+					}
+				}
+			},
+			{
+				"_category_id": "42.0",
+				"_icon_color": "ffffff00",
+				"_id": "87.0",
+				"_index": 0,
+				"_name": "Iron Sword",
+				"_property_overrides": {
+					"description": {
+						"type": "string",
+						"value": "A reliable blade forged from iron. Simple but effective."
+					},
+					"name": {
+						"type": "string",
+						"value": "Iron Sword"
+					},
+					"rarity": {
+						"type": "reference",
+						"value": {
+							"_entity_id": "73.0",
+							"_type": 0
+						}
+					},
+					"texture": {
+						"type": "resource",
+						"value": "res://assets/icons/iron_sword.png"
+					},
+					"value": {
+						"type": "float",
+						"value": 45.0
+					},
+					"weight": {
+						"type": "float",
+						"value": 3.0
+					}
+				}
+			},
+			{
+				"_category_id": "42.0",
+				"_icon_color": "ffffff00",
+				"_id": "89.0",
+				"_index": 0,
+				"_name": "Helmet",
+				"_property_overrides": {
+					"description": {
+						"type": "string",
+						"value": "A leather cap reinforced with iron studs. Protects without limiting vision."
+					},
+					"name": {
+						"type": "string",
+						"value": "Helmet"
+					},
+					"rarity": {
+						"type": "reference",
+						"value": {
+							"_entity_id": "73.0",
+							"_type": 0
+						}
+					},
+					"texture": {
+						"type": "resource",
+						"value": "res://assets/icons/helmet.png"
+					},
+					"value": {
+						"type": "float",
+						"value": 30.0
+					},
+					"weight": {
+						"type": "float",
+						"value": 1.5
+					}
+				}
+			},
+			{
+				"_category_id": "42.0",
+				"_icon_color": "ffffff00",
+				"_id": "90.0",
+				"_index": 0,
+				"_name": "Armor",
+				"_property_overrides": {
+					"description": {
+						"type": "string",
+						"value": "A chestpiece of layered leather plates. Balances protection and mobility."
+					},
+					"name": {
+						"type": "string",
+						"value": "Armor"
+					},
+					"rarity": {
+						"type": "reference",
+						"value": {
+							"_entity_id": "73.0",
+							"_type": 0
+						}
+					},
+					"texture": {
+						"type": "resource",
+						"value": "res://assets/icons/armor.png"
+					},
+					"value": {
+						"type": "float",
+						"value": 55.0
+					},
+					"weight": {
+						"type": "float",
+						"value": 4.0
+					}
+				}
+			},
+			{
+				"_category_id": "42.0",
+				"_icon_color": "ffffff00",
+				"_id": "91.0",
+				"_index": 0,
+				"_name": "Gloves",
+				"_property_overrides": {
+					"description": {
+						"type": "string",
+						"value": "Reinforced leather gauntlets. Improve grip and protect the hands."
+					},
+					"name": {
+						"type": "string",
+						"value": "Gloves"
+					},
+					"rarity": {
+						"type": "reference",
+						"value": {
+							"_entity_id": "73.0",
+							"_type": 0
+						}
+					},
+					"texture": {
+						"type": "resource",
+						"value": "res://assets/icons/gloves.png"
+					},
+					"value": {
+						"type": "float",
+						"value": 20.0
+					},
+					"weight": {
+						"type": "float",
+						"value": 0.799999237060547
+					}
+				}
+			},
+			{
+				"_category_id": "42.0",
+				"_icon_color": "ffffff00",
+				"_id": "92.0",
+				"_index": 0,
+				"_name": "Pants",
+				"_property_overrides": {
+					"description": {
+						"type": "string",
+						"value": "Sturdy leather leggings with padded knees. Built for adventure."
+					},
+					"name": {
+						"type": "string",
+						"value": "Pants"
+					},
+					"rarity": {
+						"type": "reference",
+						"value": {
+							"_entity_id": "73.0",
+							"_type": 0
+						}
+					},
+					"texture": {
+						"type": "resource",
+						"value": "res://assets/icons/pants.png"
+					},
+					"value": {
+						"type": "float",
+						"value": 35.0
+					},
+					"weight": {
+						"type": "float",
+						"value": 2.0
+					}
+				}
+			},
+			{
+				"_category_id": "42.0",
+				"_icon_color": "ffffff00",
+				"_id": "93.0",
+				"_index": 0,
+				"_name": "Boots",
+				"_property_overrides": {
+					"description": {
+						"type": "string",
+						"value": "Thick-soled leather boots. Keep your feet safe on any terrain."
+					},
+					"name": {
+						"type": "string",
+						"value": "Boots"
+					},
+					"rarity": {
+						"type": "reference",
+						"value": {
+							"_entity_id": "73.0",
+							"_type": 0
+						}
+					},
+					"texture": {
+						"type": "resource",
+						"value": "res://assets/icons/boots.png"
+					},
+					"value": {
+						"type": "float",
+						"value": 25.0
+					},
+					"weight": {
+						"type": "float",
+						"value": 1.20000076293945
+					}
+				}
+			},
+			{
+				"_category_id": "42.0",
+				"_icon_color": "ffffff00",
+				"_id": "94.0",
+				"_index": 0,
+				"_name": "Ring",
+				"_property_overrides": {
+					"description": {
+						"type": "string",
+						"value": "A golden ring set with a diamond. Radiates a faint magical aura."
+					},
+					"name": {
+						"type": "string",
+						"value": "Ring"
+					},
+					"rarity": {
+						"type": "reference",
+						"value": {
+							"_entity_id": "75.0",
+							"_type": 0
+						}
+					},
+					"texture": {
+						"type": "resource",
+						"value": "res://assets/icons/ring.png"
+					},
+					"value": {
+						"type": "float",
+						"value": 400.0
+					},
+					"weight": {
+						"type": "float",
+						"value": 0.100000381469727
+					}
+				}
+			},
+			{
+				"_category_id": "52.0",
+				"_icon_color": "ffffff00",
+				"_id": "95.0",
+				"_index": 0,
+				"_name": "Health Potion Recipe",
+				"_property_overrides": {
+					"description": {
+						"type": "string",
+						"value": "Brew a healing potion from forest ingredients."
+					},
+					"recipe_property": {
+						"type": "recipe_property",
+						"value": {
+							"crafting_time": 0.0,
+							"ingredients": [
+								{
+									"item": {
+										"_entity_id": "80.0",
+										"_type": 0
+									},
+									"quantity": 2
+								},
+								{
+									"item": {
+										"_entity_id": "79.0",
+										"_type": 0
+									},
+									"quantity": 2
+								}
+							],
+							"recipe_type": "Alchemy",
+							"result": {
+								"_entity_id": "76.0",
+								"_type": 0
+							},
+							"waste": null
+						}
+					}
+				}
+			},
+			{
+				"_category_id": "52.0",
+				"_icon_color": "ffffff00",
+				"_id": "96.0",
+				"_index": 0,
+				"_name": "Mana Potion Recipe",
+				"_property_overrides": {
+					"description": {
+						"type": "string",
+						"value": "Distill magical leaves into a mana-restoring elixir."
+					},
+					"recipe_property": {
+						"type": "recipe_property",
+						"value": {
+							"crafting_time": 0.0,
+							"ingredients": [
+								{
+									"item": {
+										"_entity_id": "80.0",
+										"_type": 0
+									},
+									"quantity": 1
+								},
+								{
+									"item": {
+										"_entity_id": "81.0",
+										"_type": 0
+									},
+									"quantity": 2
+								}
+							],
+							"recipe_type": "Alchemy",
+							"result": {
+								"_entity_id": "77.0",
+								"_type": 0
+							},
+							"waste": null
+						}
+					}
+				}
+			},
+			{
+				"_category_id": "52.0",
+				"_icon_color": "ffffff00",
+				"_id": "97.0",
+				"_index": 0,
+				"_name": "Iron Sword Recipe",
+				"_property_overrides": {
+					"description": {
+						"type": "string",
+						"value": "Forge an iron blade on a wooden handle"
+					},
+					"recipe_property": {
+						"type": "recipe_property",
+						"value": {
+							"crafting_time": 0.0,
+							"ingredients": [
+								{
+									"item": {
+										"_entity_id": "85.0",
+										"_type": 0
+									},
+									"quantity": 2
+								},
+								{
+									"item": {
+										"_entity_id": "86.0",
+										"_type": 0
+									},
+									"quantity": 1
+								}
+							],
+							"recipe_type": "Smithing",
+							"result": {
+								"_entity_id": "87.0",
+								"_type": 0
+							},
+							"waste": null
+						}
+					}
+				}
+			},
+			{
+				"_category_id": "52.0",
+				"_icon_color": "ffffff00",
+				"_id": "98.0",
+				"_index": 0,
+				"_name": "Helmet Recipe",
+				"_property_overrides": {
+					"description": {
+						"type": "string",
+						"value": "Shape leather into a reinforced cap"
+					},
+					"recipe_property": {
+						"type": "recipe_property",
+						"value": {
+							"crafting_time": 0.0,
+							"ingredients": [
+								{
+									"item": {
+										"_entity_id": "89.0",
+										"_type": 0
+									},
+									"quantity": 3
+								}
+							],
+							"recipe_type": "",
+							"result": {
+								"_entity_id": "89.0",
+								"_type": 0
+							},
+							"waste": null
+						}
+					}
+				}
+			},
+			{
+				"_category_id": "52.0",
+				"_icon_color": "ffffff00",
+				"_id": "99.0",
+				"_index": 0,
+				"_name": "Armor Recipe",
+				"_property_overrides": {
+					"description": {
+						"type": "string",
+						"value": "Armor"
+					},
+					"recipe_property": {
+						"type": "recipe_property",
+						"value": {
+							"crafting_time": 0.0,
+							"ingredients": [
+								{
+									"item": {
+										"_entity_id": "82.0",
+										"_type": 0
+									},
+									"quantity": 6
+								}
+							],
+							"recipe_type": "",
+							"result": {
+								"_entity_id": "90.0",
+								"_type": 0
+							},
+							"waste": null
+						}
+					}
+				}
+			},
+			{
+				"_category_id": "52.0",
+				"_icon_color": "ffffff00",
+				"_id": "100.0",
+				"_index": 0,
+				"_name": "Gloves Recipe",
+				"_property_overrides": {
+					"description": {
+						"type": "string",
+						"value": "Craft a pair of reinforced gauntlets"
+					},
+					"recipe_property": {
+						"type": "recipe_property",
+						"value": {
+							"crafting_time": 0.0,
+							"ingredients": [
+								{
+									"item": {
+										"_entity_id": "82.0",
+										"_type": 0
+									},
+									"quantity": 2
+								}
+							],
+							"recipe_type": "",
+							"result": {
+								"_entity_id": "91.0",
+								"_type": 0
+							},
+							"waste": null
+						}
+					}
+				}
+			},
+			{
+				"_category_id": "52.0",
+				"_icon_color": "ffffff00",
+				"_id": "101.0",
+				"_index": 0,
+				"_name": "Pants Recipe",
+				"_property_overrides": {
+					"description": {
+						"type": "string",
+						"value": "Stitch leather into sturdy leggings"
+					},
+					"recipe_property": {
+						"type": "recipe_property",
+						"value": {
+							"crafting_time": 0.0,
+							"ingredients": [
+								{
+									"item": {
+										"_entity_id": "82.0",
+										"_type": 0
+									},
+									"quantity": 5
+								}
+							],
+							"recipe_type": "",
+							"result": {
+								"_entity_id": "92.0",
+								"_type": 0
+							},
+							"waste": null
+						}
+					}
+				}
+			},
+			{
+				"_category_id": "52.0",
+				"_icon_color": "ffffff00",
+				"_id": "102.0",
+				"_index": 0,
+				"_name": "Boots Recipe",
+				"_property_overrides": {
+					"description": {
+						"type": "string",
+						"value": "Assemble thick-soled adventuring boots"
+					},
+					"recipe_property": {
+						"type": "recipe_property",
+						"value": {
+							"crafting_time": 0.0,
+							"ingredients": [
+								{
+									"item": {
+										"_entity_id": "82.0",
+										"_type": 0
+									},
+									"quantity": 3
+								}
+							],
+							"recipe_type": "",
+							"waste": null
+						}
+					}
+				}
+			},
+			{
+				"_category_id": "52.0",
+				"_icon_color": "ffffff00",
+				"_id": "103.0",
+				"_index": 0,
+				"_name": "Ring Recipe",
+				"_property_overrides": {
+					"description": {
+						"type": "string",
+						"value": "Set a diamond into a golden band"
+					},
+					"recipe_property": {
+						"type": "recipe_property",
+						"value": {
+							"crafting_time": 0.0,
+							"ingredients": [
+								{
+									"item": {
+										"_entity_id": "83.0",
+										"_type": 0
+									},
+									"quantity": 1
+								},
+								{
+									"item": {
+										"_entity_id": "84.0",
+										"_type": 0
+									},
+									"quantity": 1
+								}
+							],
+							"recipe_type": "",
+							"result": {
+								"_entity_id": "94.0",
+								"_type": 0
+							},
+							"waste": null
+						}
+					}
+				}
+			},
+			{
+				"_category_id": "55.0",
+				"_icon_color": "ffffff00",
+				"_id": "104.0",
+				"_index": 0,
+				"_name": "Willowmere",
+				"_property_overrides": {
+					"description": {
+						"type": "string",
+						"value": "A peaceful village nestled between ancient willow trees. Home to farmers and craftsmen who live off the land. The air smells of fresh bread and wildflowers."
+					},
+					"is_safe_zone": {
+						"type": "bool",
+						"value": true
+					},
+					"name": {
+						"type": "string",
+						"value": "Willowmere"
+					}
+				}
+			},
+			{
+				"_category_id": "55.0",
+				"_icon_color": "ffffff00",
+				"_id": "105.0",
+				"_index": 0,
+				"_name": "Thorwood Crossing",
+				"_property_overrides": {
+					"description": {
+						"type": "string",
+						"value": "A rugged outpost at the edge of a dark forest. Merchants and adventures pass through here on their way to the unkwown. The atsmosphere is tense but lively."
+					},
+					"is_safe_zone": {
+						"type": "bool",
+						"value": true
+					},
+					"name": {
+						"type": "string",
+						"value": "Thorwood Crossing"
+					}
+				}
+			},
+			{
+				"_category_id": "63.0",
+				"_icon_color": "ffffff00",
+				"_id": "106.0",
+				"_index": 0,
+				"_name": "Finn",
+				"_property_overrides": {
+					"description": {
+						"type": "string",
+						"value": "A young scout who patrols the outpost perimeter. Curious and eager to prove himself, he often asks travelers for help."
+					},
+					"name": {
+						"type": "string",
+						"value": "Finn"
+					},
+					"quest_giver_for": {
+						"type": "array",
+						"value": {
+							"0": {
+								"type": "reference",
+								"value": {
+									"_entity_id": "110.0",
+									"_type": 0
+								}
+							},
+							"1": {
+								"type": "reference",
+								"value": {
+									"_entity_id": "113.0",
+									"_type": 0
+								}
+							}
+						}
+					},
+					"spawn_location": {
+						"type": "reference",
+						"value": {
+							"_entity_id": "104.0",
+							"_type": 0
+						}
+					},
+					"texture": {
+						"type": "resource",
+						"value": "res://assets/npcs/boy/Faceset.png"
+					}
+				}
+			},
+			{
+				"_category_id": "63.0",
+				"_icon_color": "ffffff00",
+				"_id": "107.0",
+				"_index": 0,
+				"_name": "Old Bram",
+				"_property_overrides": {
+					"description": {
+						"type": "string",
+						"value": "The village blacksmith and leatherworker. Gruff but skilled, he can craft anything if you bring the right materials."
+					},
+					"name": {
+						"type": "string",
+						"value": "Old Bram"
+					},
+					"spawn_location": {
+						"type": "reference",
+						"value": {
+							"_entity_id": "104.0",
+							"_type": 0
+						}
+					},
+					"texture": {
+						"type": "resource",
+						"value": "res://assets/npcs/old_man/Faceset.png"
+					}
+				}
+			},
+			{
+				"_category_id": "63.0",
+				"_icon_color": "ffffff00",
+				"_id": "108.0",
+				"_index": 0,
+				"_name": "Voss",
+				"_property_overrides": {
+					"description": {
+						"type": "string",
+						"value": "A shrewd traveling merchant with a cart full of goods. Drives a hard bargain but always has what you need."
+					},
+					"name": {
+						"type": "string",
+						"value": "Voss"
+					},
+					"spawn_location": {
+						"type": "reference",
+						"value": {
+							"_entity_id": "105.0",
+							"_type": 0
+						}
+					},
+					"texture": {
+						"type": "resource",
+						"value": "res://assets/npcs/master/Faceset.png"
+					}
+				}
+			},
+			{
+				"_category_id": "63.0",
+				"_icon_color": "ffffff00",
+				"_id": "109.0",
+				"_index": 0,
+				"_name": "Elara",
+				"_property_overrides": {
+					"description": {
+						"type": "string",
+						"value": "A kind elderly woman who tends the village garden. She knows everyone in town and loves to share stories about the old days."
+					},
+					"name": {
+						"type": "string",
+						"value": "Elara"
+					},
+					"spawn_location": {
+						"type": "reference",
+						"value": {
+							"_entity_id": "105.0",
+							"_type": 0
+						}
+					},
+					"texture": {
+						"type": "resource",
+						"value": null
+					}
+				}
+			},
+			{
+				"_category_id": "50.0",
+				"_icon_color": "ffffff00",
+				"_id": "110.0",
+				"_index": 0,
+				"_name": "Welcome to Willowmere",
+				"_property_overrides": {
+					"quest_data": {
+						"type": "quest_property",
+						"value": {
+							"category": "",
+							"description": "Finn wants to introduce you to the village. Speak with the locals to get settled in.",
+							"objectives": [
+								{
+									"description": "Talk to Old Bram",
+									"objective_id": "talk to old bram",
+									"objective_type": 2,
+									"target_quantity": 0,
+									"target_reference": {
+										"_entity_id": "107.0",
+										"_type": 0
+									}
+								}
+							],
+							"prerequisites": [],
+							"quest_giver": {
+								"_entity_id": "106.0",
+								"_type": 0
+							},
+							"quest_id": "welcome to willowmere",
+							"quest_name": "Welcome to willowmere",
+							"quest_type": 1,
+							"rewards": [
+								{
+									"currency_amount": 0,
+									"quantity": 3,
+									"reward_entity_reference": {
+										"_entity_id": "78.0",
+										"_type": 0
+									},
+									"reward_name": "Strawberry",
+									"reward_type": 0
+								},
+								{
+									"currency_amount": 10,
+									"quantity": 1,
+									"reward_name": "Gold",
+									"reward_type": 1
+								}
+							]
+						}
+					}
+				}
+			},
+			{
+				"_category_id": "50.0",
+				"_icon_color": "ffffff00",
+				"_id": "113.0",
+				"_index": 0,
+				"_name": "Scout the crossing",
+				"_property_overrides": {
+					"quest_data": {
+						"type": "quest_property",
+						"value": {
+							"category": "",
+							"description": "Finn  has heard strange noises coming from the far side of Thorwood Crossing. He ask you to scout the area.",
+							"objectives": [
+								{
+									"description": "Reach Thornwood Crossing",
+									"objective_id": "reach crossing",
+									"objective_type": 3,
+									"target_quantity": 0,
+									"target_reference": {
+										"_entity_id": "105.0",
+										"_type": 0
+									}
+								}
+							],
+							"prerequisites": [],
+							"quest_giver": {
+								"_entity_id": "106.0",
+								"_type": 0
+							},
+							"quest_id": "scout the crossing",
+							"quest_name": "Scout the Crossing",
+							"quest_type": 0,
+							"rewards": [
+								{
+									"currency_amount": 0,
+									"quantity": 2,
+									"reward_entity_reference": {
+										"_entity_id": "85.0",
+										"_type": 0
+									},
+									"reward_name": "Iron Ingot",
+									"reward_type": 0
+								},
+								{
+									"currency_amount": 100,
+									"quantity": 1,
+									"reward_name": "Gold",
+									"reward_type": 1
+								}
+							]
+						}
+					}
+				}
+			}
+		],
+		"_properties": [
+			{
+				"_category_id": "39.0",
+				"_default_value": "",
+				"_id": "40.0",
+				"_name": "name",
+				"_type": "string"
+			},
+			{
+				"_category_id": "39.0",
+				"_default_value": 0.0,
+				"_id": "41.0",
+				"_name": "percentage",
+				"_type": "float"
+			},
+			{
+				"_category_id": "42.0",
+				"_default_value": "",
+				"_id": "43.0",
+				"_name": "name",
+				"_type": "string"
+			},
+			{
+				"_category_id": "42.0",
+				"_default_value": "",
+				"_id": "44.0",
+				"_name": "description",
+				"_type": "string"
+			},
+			{
+				"_category_id": "42.0",
+				"_default_value": false,
+				"_id": "45.0",
+				"_name": "stackable",
+				"_type": "bool"
+			},
+			{
+				"_category_id": "42.0",
+				"_default_value": null,
+				"_id": "46.0",
+				"_name": "texture",
+				"_type": "resource"
+			},
+			{
+				"_category_id": "42.0",
+				"_default_value": 0.0,
+				"_id": "47.0",
+				"_name": "value",
+				"_type": "float"
+			},
+			{
+				"_category_id": "42.0",
+				"_default_value": 0.0,
+				"_id": "48.0",
+				"_name": "weight",
+				"_type": "float"
+			},
+			{
+				"_category_id": "42.0",
+				"_default_value": null,
+				"_id": "49.0",
+				"_name": "rarity",
+				"_setting_overrides": {
+					"Category Filter": "39.0"
+				},
+				"_type": "reference"
+			},
+			{
+				"_category_id": "50.0",
+				"_default_value": {
+					"category": "",
+					"description": "",
+					"objectives": [],
+					"prerequisites": [],
+					"quest_id": "",
+					"quest_name": "",
+					"quest_type": 1,
+					"rewards": []
+				},
+				"_id": "51.0",
+				"_name": "quest_data",
+				"_setting_overrides": {
+					"Quest Giver Category Filter": "63.0"
+				},
+				"_type": "quest_property"
+			},
+			{
+				"_category_id": "52.0",
+				"_default_value": "",
+				"_id": "53.0",
+				"_name": "description",
+				"_type": "string"
+			},
+			{
+				"_category_id": "52.0",
+				"_default_value": null,
+				"_id": "54.0",
+				"_name": "recipe_property",
+				"_setting_overrides": {
+					"Ingredients Filter": "42.0",
+					"Result Filter": "42.0"
+				},
+				"_type": "recipe_property"
+			},
+			{
+				"_category_id": "55.0",
+				"_default_value": "",
+				"_id": "56.0",
+				"_name": "name",
+				"_type": "string"
+			},
+			{
+				"_category_id": "55.0",
+				"_default_value": "",
+				"_id": "57.0",
+				"_name": "description",
+				"_type": "string"
+			},
+			{
+				"_category_id": "55.0",
+				"_default_value": null,
+				"_id": "58.0",
+				"_name": "texture",
+				"_type": "resource"
+			},
+			{
+				"_category_id": "55.0",
+				"_default_value": "(0.0,0.0)",
+				"_id": "59.0",
+				"_name": "position",
+				"_type": "vector2"
+			},
+			{
+				"_category_id": "55.0",
+				"_default_value": "",
+				"_id": "60.0",
+				"_name": "area_name",
+				"_type": "string"
+			},
+			{
+				"_category_id": "55.0",
+				"_default_value": "Wilderness",
+				"_id": "61.0",
+				"_name": "location_type",
+				"_type": "string"
+			},
+			{
+				"_category_id": "55.0",
+				"_default_value": false,
+				"_id": "62.0",
+				"_name": "is_safe_zone",
+				"_type": "bool"
+			},
+			{
+				"_category_id": "63.0",
+				"_default_value": "",
+				"_id": "64.0",
+				"_name": "name",
+				"_type": "string"
+			},
+			{
+				"_category_id": "63.0",
+				"_default_value": "",
+				"_id": "65.0",
+				"_name": "description",
+				"_type": "string"
+			},
+			{
+				"_category_id": "63.0",
+				"_default_value": null,
+				"_id": "66.0",
+				"_name": "texture",
+				"_type": "resource"
+			},
+			{
+				"_category_id": "63.0",
+				"_default_value": null,
+				"_id": "67.0",
+				"_name": "base_stats",
+				"_type": "stats_property"
+			},
+			{
+				"_category_id": "63.0",
+				"_default_value": "Neutral",
+				"_id": "68.0",
+				"_name": "faction",
+				"_type": "string"
+			},
+			{
+				"_category_id": "63.0",
+				"_default_value": false,
+				"_id": "69.0",
+				"_name": "is_hostile",
+				"_type": "bool"
+			},
+			{
+				"_category_id": "63.0",
+				"_default_value": null,
+				"_id": "70.0",
+				"_name": "spawn_location",
+				"_setting_overrides": {
+					"Category Filter": "55.0"
+				},
+				"_type": "reference"
+			},
+			{
+				"_category_id": "63.0",
+				"_default_value": {
+
+				},
+				"_id": "71.0",
+				"_name": "quest_giver_for",
+				"_setting_overrides": {
+					"Array Type": "reference",
+					"Category Filter": "50.0"
+				},
+				"_type": "array"
+			}
+		]
+	},
+	"_id_generator": {
+		"_ids_by_context": {
+			"default": 113.0
+		}
+	}
+}

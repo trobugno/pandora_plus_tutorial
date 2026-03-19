@@ -1,0 +1,167 @@
+extends Resource
+class_name PPInventory
+
+signal inventory_updated
+signal item_added(item: PPItemEntity, quantity: int)
+signal item_removed(item: PPItemEntity, quantity: int)
+@export var all_items : Array[PPInventorySlot] = []
+@export var game_currency: int = 0
+
+var max_items_in_inventory : int = -1
+var max_weight : float = -1
+
+func _init(pmi_inventory: int = -1) -> void:
+	max_items_in_inventory = pmi_inventory
+
+	if max_items_in_inventory > -1:
+		for i in max_items_in_inventory:
+			all_items.append(null)
+
+func has_item(item: PPItemEntity, quantity : int = 1) -> bool:
+	if not item:
+		return false
+	var inventory_slots = all_items.filter(func(s: PPInventorySlot): return s and s.item and s.item._id == item._id) \
+		.filter(func(s: PPInventorySlot): return s.quantity >= quantity)
+	if inventory_slots:
+		return true
+	return false
+	
+func add_item(item: PPItemEntity, quantity: int = 1, new_slot: bool = false) -> void:
+	var inventory_slots = all_items.filter(func(s: PPInventorySlot): return s and s.get_item() and s.get_item()._id == item._id) \
+		.filter(func(s: PPInventorySlot): return s.quantity < s.MAX_STACK_SIZE)
+	var inventory_slot = PPInventorySlot.new()
+	inventory_slot.item = item
+	inventory_slot.quantity = quantity
+
+	if inventory_slots:
+		if inventory_slots[0].can_fully_merge_with(inventory_slot) and not new_slot:
+			inventory_slots[0].fully_merge_with(inventory_slot)
+		else:
+			var index = all_items.find(null)
+			if index > -1:
+				all_items[index] = inventory_slot
+			elif index == -1 and max_items_in_inventory == -1:
+				all_items.append(inventory_slot)
+	else:
+		var index = all_items.find(null)
+		if index > -1:
+			all_items[index] = inventory_slot
+		elif index == -1 and max_items_in_inventory == -1:
+			all_items.append(inventory_slot)
+
+	item_added.emit(item, quantity)
+
+
+## Adds a runtime item to the inventory
+## Runtime items with custom data (custom name, etc.) are stored separately
+func add_runtime_item(runtime_item: PPRuntimeItem, quantity: int = 1, new_slot: bool = false) -> void:
+	var item = runtime_item.get_item_entity()
+	if not item:
+		push_error("PPInventory.add_runtime_item: Runtime item has no valid entity")
+		return
+
+	# Check if this runtime item can be merged with existing slots
+	var can_merge = runtime_item.is_stackable() and not runtime_item.has_custom_name()
+
+	if can_merge and not new_slot:
+		# Try to find a compatible slot to merge with
+		var compatible_slots = all_items.filter(func(s: PPInventorySlot):
+			if not s or not s.get_item():
+				return false
+			if s.get_item()._id != item._id:
+				return false
+			if s.quantity >= s.MAX_STACK_SIZE:
+				return false
+			# If slot has runtime item, check compatibility
+			if s.has_runtime_item():
+				return s.runtime_item.can_stack_with(runtime_item)
+			# If slot has no runtime item, can merge if runtime has no custom data
+			return not runtime_item.has_custom_name()
+		)
+
+		if compatible_slots:
+			var inventory_slot = PPInventorySlot.new()
+			inventory_slot.runtime_item = runtime_item
+			inventory_slot.item = item
+			inventory_slot.quantity = quantity
+
+			if compatible_slots[0].can_fully_merge_with(inventory_slot):
+				compatible_slots[0].fully_merge_with(inventory_slot)
+				item_added.emit(item, quantity)
+				return
+
+	# Create new slot for the runtime item
+	var inventory_slot = PPInventorySlot.new()
+	inventory_slot.runtime_item = runtime_item
+	inventory_slot.item = item
+	inventory_slot.quantity = quantity
+
+	var index = all_items.find(null)
+	if index > -1:
+		all_items[index] = inventory_slot
+	elif index == -1 and max_items_in_inventory == -1:
+		all_items.append(inventory_slot)
+
+	item_added.emit(item, quantity)
+
+func remove_item(item: PPItemEntity, quantity: int = 1, source: Array[PPInventorySlot] = all_items) -> void:
+	for index in source.size():
+		if source[index]:
+			if source[index].item.get_entity_id() == item.get_entity_id():
+				if source[index].quantity > quantity:
+					source[index].quantity -= quantity
+					item_removed.emit(item, quantity)
+					return
+				elif source[index].quantity == quantity:
+					source[index] = null
+					item_removed.emit(item, quantity)
+					return
+	push_error("Impossible to remove item.")
+
+func remove_single_item_by(index: int) -> PPItemEntity:
+	var inventory_slot = all_items[index]
+
+	if inventory_slot:
+		if inventory_slot.quantity == 1:
+			all_items[index] = null
+			inventory_updated.emit()
+			return inventory_slot.item
+		else:
+			inventory_slot.quantity -= 1
+			inventory_updated.emit()
+			return inventory_slot.item
+	return null
+
+## Serialization Methods
+
+func to_dict() -> Dictionary:
+	return {
+		"all_items": all_items.map(func(s): return _slot_to_dict(s)),
+		"game_currency": game_currency
+	}
+
+static func from_dict(data: Dictionary) -> PPInventory:
+	var inventory = PPInventory.new()
+
+	# Restore all_items
+	if data.has("all_items"):
+		inventory.all_items.clear()
+		for slot_data in data["all_items"]:
+			inventory.all_items.append(_slot_from_dict(slot_data))
+
+	# Restore currency
+	if data.has("game_currency"):
+		inventory.game_currency = data["game_currency"]
+
+	return inventory
+
+static func _slot_to_dict(slot: PPInventorySlot) -> Variant:
+	if not slot or not slot.get_item():
+		return null
+	return slot.to_dict()
+
+
+static func _slot_from_dict(slot_data: Variant) -> PPInventorySlot:
+	if slot_data == null:
+		return null
+	return PPInventorySlot.from_dict(slot_data)
