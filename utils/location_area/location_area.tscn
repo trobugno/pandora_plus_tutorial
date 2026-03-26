@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1mvwauot8uh4"]
+
+[ext_resource type="Script" uid="uid://dhwktm8f34ls8" path="res://utils/location_area/location_area.gd" id="1_3p2ot"]
+
+[node name="LocationArea" type="Area2D"]
+script = ExtResource("1_3p2ot")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

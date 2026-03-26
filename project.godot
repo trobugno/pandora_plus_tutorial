@@ -28,6 +28,11 @@ PPNPCManager="*res://addons/pandora_plus/managers/npc_manager.gd"
 PPTimeManager="*res://addons/pandora_plus/managers/time_manager.gd"
 PPSaveManager="*res://addons/pandora_plus/save_system/save_manager.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/pandora/plugin.cfg", "res://addons/pandora_plus/plugin.cfg")
@@ -35,3 +40,13 @@ enabled=PackedStringArray("res://addons/pandora/plugin.cfg", "res://addons/pando
 [pandora]
 
 config/extensions=[&"res://pandora/extensions", &"res://addons/pandora_plus/extensions"]
+
+[pandora_plus]
+
+config/save_system/max_save_slots=1
+config/save_system/autosave_enabled=false
+config/player/max_inventory_slots=20
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

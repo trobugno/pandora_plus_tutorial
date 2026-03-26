@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://bi26myaui5phe"]
+
+[ext_resource type="PackedScene" uid="uid://b4lgt06eglcu2" path="res://scenes/locations/willowmere/willowmere.tscn" id="1_321g5"]
+[ext_resource type="Script" uid="uid://e4wiqk041hrl" path="res://scenes/locations/world.gd" id="1_cqucs"]
+[ext_resource type="PackedScene" uid="uid://bghov2tqkj3f2" path="res://scenes/locations/thorwood_crossing/thorwood_crossing.tscn" id="2_lc2ud"]
+[ext_resource type="PackedScene" uid="uid://cflhaq0ds04f1" path="res://entities/player/player.tscn" id="4_1llb7"]
+
+[node name="World" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_cqucs")
+
+[node name="Willowmere" parent="." instance=ExtResource("1_321g5")]
+
+[node name="Thorwood Crossing" parent="." instance=ExtResource("2_lc2ud")]
+position = Vector2(480, 0)
+
+[node name="Player" parent="." instance=ExtResource("4_1llb7")]
+position = Vector2(175, 122)
