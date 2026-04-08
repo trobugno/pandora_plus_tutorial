@@ -15,6 +15,13 @@ func _ready() -> void:
 	base_stats._mov_speed = 60
 	player_data.base_stats = base_stats
 	player_data.runtime_stats = PPRuntimeStats.new(base_stats)
+	
+	var mushrooms = Pandora.get_entity(EntityIds.MUSHROOMS).instantiate() as PPItemEntity
+	var roots = Pandora.get_entity(EntityIds.ROOT).instantiate() as PPItemEntity
+	var armoatic_leaves = Pandora.get_entity(EntityIds.AROMATIC_LEAVES).instantiate() as PPItemEntity
+	PPPlayerManager.add_item(mushrooms, 5)
+	PPPlayerManager.add_item(roots, 5)
+	PPPlayerManager.add_item(armoatic_leaves, 3)
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept") and last_NPC:

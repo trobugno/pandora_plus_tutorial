@@ -1,0 +1,200 @@
+[gd_scene load_steps=4 format=3 uid="uid://r1lljb4a6vrm"]
+
+[ext_resource type="PackedScene" uid="uid://ch5odvlroyal" path="res://ui/inventory_slot/inventory_slot.tscn" id="1_1rsdv"]
+[ext_resource type="Script" uid="uid://bg4fv7hkcss1l" path="res://ui/crafting_gui/crafting_gui.gd" id="1_pf0fm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pf0fm"]
+bg_color = Color(0.65882355, 0.26666668, 0.27450982, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="CraftingGUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pf0fm")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(570, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -285.0
+offset_top = -215.0
+offset_right = 285.0
+offset_bottom = 185.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pf0fm")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Inventory"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InventoryGrid" type="GridContainer" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 5
+
+[node name="InventorySlot" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/InventoryGrid" instance=ExtResource("1_1rsdv")]
+layout_mode = 2
+
+[node name="InventorySlot2" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/InventoryGrid" instance=ExtResource("1_1rsdv")]
+layout_mode = 2
+
+[node name="InventorySlot3" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/InventoryGrid" instance=ExtResource("1_1rsdv")]
+layout_mode = 2
+
+[node name="InventorySlot4" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/InventoryGrid" instance=ExtResource("1_1rsdv")]
+layout_mode = 2
+
+[node name="InventorySlot5" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/InventoryGrid" instance=ExtResource("1_1rsdv")]
+layout_mode = 2
+
+[node name="InventorySlot6" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/InventoryGrid" instance=ExtResource("1_1rsdv")]
+layout_mode = 2
+
+[node name="InventorySlot7" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/InventoryGrid" instance=ExtResource("1_1rsdv")]
+layout_mode = 2
+
+[node name="InventorySlot8" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/InventoryGrid" instance=ExtResource("1_1rsdv")]
+layout_mode = 2
+
+[node name="InventorySlot9" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/InventoryGrid" instance=ExtResource("1_1rsdv")]
+layout_mode = 2
+
+[node name="InventorySlot10" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/InventoryGrid" instance=ExtResource("1_1rsdv")]
+layout_mode = 2
+
+[node name="InventorySlot11" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/InventoryGrid" instance=ExtResource("1_1rsdv")]
+layout_mode = 2
+
+[node name="InventorySlot12" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/InventoryGrid" instance=ExtResource("1_1rsdv")]
+layout_mode = 2
+
+[node name="InventorySlot13" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/InventoryGrid" instance=ExtResource("1_1rsdv")]
+layout_mode = 2
+
+[node name="InventorySlot14" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/InventoryGrid" instance=ExtResource("1_1rsdv")]
+layout_mode = 2
+
+[node name="InventorySlot15" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/InventoryGrid" instance=ExtResource("1_1rsdv")]
+layout_mode = 2
+
+[node name="InventorySlot16" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/InventoryGrid" instance=ExtResource("1_1rsdv")]
+layout_mode = 2
+
+[node name="InventorySlot17" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/InventoryGrid" instance=ExtResource("1_1rsdv")]
+layout_mode = 2
+
+[node name="InventorySlot18" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/InventoryGrid" instance=ExtResource("1_1rsdv")]
+layout_mode = 2
+
+[node name="InventorySlot19" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/InventoryGrid" instance=ExtResource("1_1rsdv")]
+layout_mode = 2
+
+[node name="InventorySlot20" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/InventoryGrid" instance=ExtResource("1_1rsdv")]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Recipe"
+
+[node name="IngredientsContainer" type="GridContainer" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 3
+
+[node name="InventorySlot" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/IngredientsContainer" instance=ExtResource("1_1rsdv")]
+layout_mode = 2
+
+[node name="InventorySlot2" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/IngredientsContainer" instance=ExtResource("1_1rsdv")]
+layout_mode = 2
+
+[node name="InventorySlot3" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/IngredientsContainer" instance=ExtResource("1_1rsdv")]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "List of Recipes"
+
+[node name="RecipesList" type="ItemList" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ResultContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="RecipeSlot" parent="Panel/MarginContainer/VBoxContainer/ResultContainer" instance=ExtResource("1_1rsdv")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/ResultContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/ResultContainer/VBoxContainer"]
+layout_mode = 2
+text = "Do you want to craft?"
+
+[node name="CraftButton" type="Button" parent="Panel/MarginContainer/VBoxContainer/ResultContainer/VBoxContainer"]
+layout_mode = 2
+text = "Craft"
+
+[node name="Tip" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "Select a recipe or try combine something"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="item_selected" from="Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/RecipesList" to="." method="_on_recipes_list_item_selected"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/ResultContainer/VBoxContainer/CraftButton" to="." method="_on_craft_button_pressed"]

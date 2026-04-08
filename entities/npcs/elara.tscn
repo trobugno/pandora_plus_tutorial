@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://crcpv3fskgrjs"]
 
-[ext_resource type="Script" uid="uid://csgwfh870kbxe" path="res://entities/npcs/npc.gd" id="1_yfuly"]
+[ext_resource type="Script" uid="uid://rdsd3ts85l5c" path="res://entities/npcs/elara.gd" id="1_l1arb"]
 [ext_resource type="Texture2D" uid="uid://b2kd4yyubg51n" path="res://assets/npcs/old_woman/SpriteSheet.png" id="2_66qqr"]
 [ext_resource type="Script" uid="uid://sxoy0bv4eefy" path="res://addons/pandora_plus/entities/npc_entity.gd" id="2_l1arb"]
 [ext_resource type="Script" uid="uid://dsrrkxhd6jdbp" path="res://addons/pandora_plus/entities/location_entity.gd" id="3_6effm"]
@@ -17,7 +17,7 @@ _id = "105.0"
 radius = 6.0
 
 [node name="Elara" type="CharacterBody2D"]
-script = ExtResource("1_yfuly")
+script = ExtResource("1_l1arb")
 npc_entity = SubResource("Resource_rphpi")
 location_entity = SubResource("Resource_volnq")
 metadata/_custom_type_script = "uid://csgwfh870kbxe"
