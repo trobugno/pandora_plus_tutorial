@@ -1,0 +1,4 @@
+join elara left [animation="Fade In Up" wait="true"]
+elara: Do you want to create something?
+do Globals.open_crafting_gui_from_dialogue()
+[end_timeline]

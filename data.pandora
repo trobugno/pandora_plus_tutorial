@@ -1349,7 +1349,7 @@
 								"_entity_id": "106.0",
 								"_type": 0
 							},
-							"quest_id": "welcome to willowmere",
+							"quest_id": "welcome_to_willowmere",
 							"quest_name": "Welcome to willowmere",
 							"quest_type": 1,
 							"rewards": [
@@ -1403,7 +1403,7 @@
 								"_entity_id": "106.0",
 								"_type": 0
 							},
-							"quest_id": "scout the crossing",
+							"quest_id": "scout_the_crossing",
 							"quest_name": "Scout the Crossing",
 							"quest_type": 0,
 							"rewards": [

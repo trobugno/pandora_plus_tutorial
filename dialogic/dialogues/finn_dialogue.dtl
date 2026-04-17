@@ -1,0 +1,23 @@
+join finn left [animation="Fade In Up" wait="true"]
+if {Quests.welcome_to_willowmere} == 0.0:
+	finn: Hello and welcome to Willowmere! My name is Finn, and I hope you enjoy your stay here!
+	finn: I suggest you talk to the other people in the village so you can get to know them.
+	set {Quests.welcome_to_willowmere} = 1.0
+	[signal arg_type="dict" arg="{"npc_name":"Finn","start_quest":"welcome_to_willowmere"}"]
+	[end_timeline]
+elif {Quests.welcome_to_willowmere} == 1.0:
+	finn: I suggest you talk to the other people in the village so you can get to know them.
+	[end_timeline]
+elif {Quests.welcome_to_willowmere} == 2.0:
+	if {Quests.scout_the_crossing} == 0.0:
+		finn: Oh, I see you've met old Bram!
+		finn: How about a little exploration? I heard some noises coming from Thorwood Crossing, could you check it out?
+		set {Quests.scout_the_crossing} = 1.0
+		[signal arg_type="dict" arg="{"npc_name":"Finn","start_quest":"scout_the_crossing"}"]
+		[end_timeline]
+	elif {Quests.scout_the_crossing} == 1.0:
+		finn: How is the exploration going?
+		[end_timeline]
+	else:
+		finn: If you like Pandora+, please support the project!
+		[end_timeline]

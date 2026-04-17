@@ -14,10 +14,16 @@ var current_recipes : Array[PPRecipeEntity]
 var selected_recipe : PPRecipeEntity
 
 func _ready() -> void:
+	modulate.a = 0
+	position.y = 100
 	ingredients_inventory = PPInventory.new(3)
 	
 	populate_player_inventory()
 	populate_recipes()
+	
+	var animation_tween = get_tree().create_tween()
+	animation_tween.parallel().tween_property(self, "position:y", 0, 0.5).set_delay(0.35)
+	animation_tween.parallel().tween_property(self, "modulate:a", 1, 0.5).set_delay(0.35)
 
 func _process(_delta: float) -> void:
 	for index in range(recipes_list.item_count):
@@ -133,4 +139,10 @@ func _on_craft_button_pressed() -> void:
 	result_container.hide()
 
 func close_gui() -> void:
+	var animation_tween = get_tree().create_tween()
+	animation_tween.parallel().tween_property(self, "position:y", 100, 0.5)
+	animation_tween.parallel().tween_property(self, "modulate:a", 0, 0.5)
+	
 	PPInventoryUtils.transfer_all(ingredients_inventory, current_inventory)
+	await animation_tween.finished
+	queue_free()

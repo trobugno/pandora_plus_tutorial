@@ -1,0 +1,10 @@
+join old_bram left [animation="Fade In Up" wait="true"]
+if {Quests.welcome_to_willowmere} != 1.0:
+	old_bram: Hello traveler!
+	[end_timeline]
+else:
+	old_bram: Hello traveler!
+	old_bram: Oh? Did Finn send you? Then welcome!
+	old_bram: Finn is a great neighbor, please go back to him and follow his advice!
+	set {Quests.welcome_to_willowmere} = 2.0
+	[end_timeline]

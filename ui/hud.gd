@@ -15,9 +15,28 @@ func _ready() -> void:
 	Globals.location_reach.connect(_on_location_reach)
 	Globals.open_crafting_gui.connect(_on_open_crafting_gui)
 	Globals.notify.connect(_on_notify)
+	Dialogic.timeline_ended.connect(_on_timeline_ended)
+
+func _on_timeline_ended() -> void:
+	if current_gui:
+		return
+	
+	Globals.block_player_actions = false
 
 func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("ui_cancel") and current_gui:
+		if current_gui is CraftingGUI:
+			current_gui.close_gui()
+		else:
+			current_gui.queue_free()
+		
+		Globals.block_player_actions = false
+	
+	if Globals.block_player_actions:
+		return
+	
 	if Input.is_action_just_pressed("toggle_inventory"):
+		Globals.block_player_actions = true
 		if not current_gui:
 			current_gui = INVENTORY_GUI.instantiate() as InventoryGUI
 			current_gui.set_current_scene_node(self)
@@ -31,6 +50,7 @@ func _process(_delta: float) -> void:
 			current_gui.queue_free()
 	
 	if Input.is_action_just_pressed("toggle_quests"):
+		Globals.block_player_actions = true
 		if not current_gui:
 			current_gui = QUEST_GUI.instantiate()
 			add_child(current_gui)
@@ -40,11 +60,6 @@ func _process(_delta: float) -> void:
 			add_child(current_gui)
 		else:
 			current_gui.queue_free()
-	
-	if Input.is_action_just_pressed("ui_cancel") and current_gui:
-		if current_gui is CraftingGUI:
-			current_gui.close_gui()
-		current_gui.queue_free()
 
 func _on_open_crafting_gui() -> void:
 	if not current_gui:

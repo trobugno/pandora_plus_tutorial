@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://buyuj2bw1ld46"]
+[gd_scene load_steps=9 format=3 uid="uid://buyuj2bw1ld46"]
 
 [ext_resource type="Script" uid="uid://csgwfh870kbxe" path="res://entities/npcs/npc.gd" id="1_xm64h"]
+[ext_resource type="Resource" uid="uid://man0s8gpxpsq" path="res://dialogic/dialogues/old_bram_dialogue.dtl" id="2_adcao"]
 [ext_resource type="Texture2D" uid="uid://dpn6mknigti3x" path="res://assets/npcs/old_man/SpriteSheet.png" id="2_b2h3a"]
 [ext_resource type="Script" uid="uid://sxoy0bv4eefy" path="res://addons/pandora_plus/entities/npc_entity.gd" id="2_j6b00"]
 [ext_resource type="Script" uid="uid://dsrrkxhd6jdbp" path="res://addons/pandora_plus/entities/location_entity.gd" id="3_adcao"]
@@ -18,6 +19,7 @@ radius = 6.0
 
 [node name="OldBram" type="CharacterBody2D"]
 script = ExtResource("1_xm64h")
+dialogue_timeline = ExtResource("2_adcao")
 npc_entity = SubResource("Resource_d24yg")
 location_entity = SubResource("Resource_d2n18")
 metadata/_custom_type_script = "uid://csgwfh870kbxe"

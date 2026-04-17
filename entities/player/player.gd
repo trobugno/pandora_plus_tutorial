@@ -24,10 +24,14 @@ func _ready() -> void:
 	PPPlayerManager.add_item(armoatic_leaves, 3)
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("ui_accept") and last_NPC:
+	if Input.is_action_just_pressed("ui_accept") and last_NPC and not Globals.block_player_actions:
 		last_NPC.interact()
+		Globals.block_player_actions = true
 
 func _physics_process(_delta: float) -> void:
+	if Globals.block_player_actions:
+		return
+	
 	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	
 	var runtime_stats = PPPlayerManager.get_runtime_stats()
